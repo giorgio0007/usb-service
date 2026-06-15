@@ -4,7 +4,7 @@ import { siteConfig } from "@/shared/config/site";
 
 export const metadata: Metadata = {
   title: "Контакты",
-  description: `Контакты ${siteConfig.name} в Ставрополе — адрес, телефоны, график работы.`,
+  description: `${siteConfig.name} — адрес, телефоны и график работы в Ставрополе.`,
 };
 
 export default function Page() {

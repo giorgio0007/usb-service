@@ -1,11 +1,5 @@
-import type { Metadata } from "next";
-import { PricingPage } from "@/views/pricing/ui/PricingPage";
-
-export const metadata: Metadata = {
-  title: "Цены",
-  description: "Прозрачные цены на ремонт техники, сборку ПК и установку ПО в Ставрополе.",
-};
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <PricingPage />;
+  redirect("/services");
 }

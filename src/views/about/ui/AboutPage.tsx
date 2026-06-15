@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { benefits, stats } from "@/entities/company/model/data";
+import { benefits } from "@/entities/company/model/data";
 import { siteConfig } from "@/shared/config/site";
 import { CtaSection } from "@/widgets/cta-section/ui/CtaSection";
 import { Section } from "@/shared/ui/Section";
@@ -15,12 +15,11 @@ export function AboutPage() {
               badge="О нас"
               title="Надёжный сервис"
               titleHighlight="в Ставрополе"
-              description={`${siteConfig.name} — ремонт смартфонов, планшетов, ноутбуков и компьютеров любых производителей. Сборка ПК, установка ПО и бесплатная диагностика.`}
+              description={`${siteConfig.name} — ремонт смартфонов, планшетов, ноутбуков и компьютеров любых производителей. ${siteConfig.tagline}.`}
               align="left"
               className="mb-0"
             />
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              Наши мастера сочетают многолетний опыт с современным оборудованием.
               Прозрачные цены, качественные запчасти и бережное отношение к каждому устройству.
             </p>
           </div>
@@ -35,29 +34,8 @@ export function AboutPage() {
         </div>
       </Section>
 
-      <Section className="bg-muted">
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-          {stats.map((stat, index) => (
-            <div
-              key={stat.label}
-              className="animate-fade-in-up text-center"
-              style={{ animationDelay: `${index * 80}ms` }}
-            >
-              <p className="text-3xl font-bold text-gradient md:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       <Section>
-        <SectionHeader
-          badge="Наши ценности"
-          title="Чем мы"
-          titleHighlight="отличаемся"
-        />
+        <SectionHeader badge="Наши ценности" title="Чем мы" titleHighlight="отличаемся" />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, index) => (
             <div

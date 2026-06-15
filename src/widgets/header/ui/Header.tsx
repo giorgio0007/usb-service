@@ -7,7 +7,7 @@ import { mainNavigation } from "@/shared/config/navigation";
 import { siteConfig } from "@/shared/config/site";
 import { formatPhoneHref } from "@/shared/lib/format";
 import { cn } from "@/shared/lib/cn";
-import { Button } from "@/shared/ui/Button";
+import { CallButton } from "@/shared/ui/CallButton";
 import { Container } from "@/shared/ui/Container";
 import { Logo } from "@/shared/ui/Logo";
 
@@ -18,8 +18,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-dark/5 bg-white/80 backdrop-blur-xl">
       <Container>
-        <div className="flex h-16 items-center justify-between md:h-20">
-          <Logo showIcon className="scale-90 md:scale-100" />
+        <div className="flex h-16 items-center justify-between md:h-[4.5rem]">
+          <Logo showIcon showTagline className="scale-90 md:scale-100" />
 
           <nav className="hidden items-center gap-7 lg:flex">
             {mainNavigation.map((item) => (
@@ -43,9 +43,7 @@ export function Header() {
             >
               {siteConfig.phonePrimary}
             </a>
-            <Button href="/contact" size="sm">
-              Записаться
-            </Button>
+            <CallButton size="sm" />
           </div>
 
           <button
@@ -87,9 +85,7 @@ export function Header() {
               >
                 {siteConfig.phonePrimary}
               </a>
-              <Button href="/contact" className="mt-2">
-                Записаться
-              </Button>
+              <CallButton size="md" className="mt-2 w-full" />
             </div>
           </nav>
         </div>

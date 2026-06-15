@@ -1,4 +1,4 @@
-import { benefits, stats } from "@/entities/company/model/data";
+import { benefits } from "@/entities/company/model/data";
 import { siteConfig } from "@/shared/config/site";
 import { Section } from "@/shared/ui/Section";
 import { SectionHeader } from "@/shared/ui/SectionHeader";
@@ -9,24 +9,9 @@ export function BenefitsSection() {
       <SectionHeader
         badge="Почему мы"
         title="Преимущества"
-        titleHighlight={siteConfig.nameAccent}
-        description="Нам доверяют тысячи клиентов в Ставрополе и крае."
+        titleHighlight={siteConfig.name}
         className="[&_h2]:text-white [&_p]:text-white/60"
       />
-      <div className="mb-16 grid grid-cols-2 gap-8 lg:grid-cols-4">
-        {stats.map((stat, index) => (
-          <div
-            key={stat.label}
-            className="animate-fade-in-up text-center"
-            style={{ animationDelay: `${index * 80}ms` }}
-          >
-            <p className="text-3xl font-bold text-gradient md:text-4xl">
-              {stat.value}
-            </p>
-            <p className="mt-1 text-sm text-white/50">{stat.label}</p>
-          </div>
-        ))}
-      </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {benefits.map((benefit, index) => (
           <div
@@ -42,6 +27,10 @@ export function BenefitsSection() {
           </div>
         ))}
       </div>
+      <p className="mt-8 text-center text-xs leading-relaxed text-white/30">
+        * На залитые устройства гарантия не выдаётся. На остальные работы — от 30 дней до 1 года,
+        в зависимости от поломки и запчасти.
+      </p>
     </Section>
   );
 }

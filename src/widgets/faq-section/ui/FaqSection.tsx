@@ -3,18 +3,12 @@
 import { useState } from "react";
 import { faqItems } from "@/entities/faq/model/data";
 import { cn } from "@/shared/lib/cn";
-import { Button } from "@/shared/ui/Button";
 import { Section } from "@/shared/ui/Section";
 import { SectionHeader } from "@/shared/ui/SectionHeader";
 
-type FaqSectionProps = {
-  limit?: number;
-  showViewAll?: boolean;
-};
-
-export function FaqSection({ limit, showViewAll = false }: FaqSectionProps) {
+export function FaqSection() {
   const [openId, setOpenId] = useState<string | null>(faqItems[0]?.id ?? null);
-  const items = limit ? faqItems.slice(0, limit) : faqItems;
+  const items = faqItems;
 
   return (
     <Section className="bg-muted">
@@ -22,7 +16,6 @@ export function FaqSection({ limit, showViewAll = false }: FaqSectionProps) {
         badge="FAQ"
         title="Частые"
         titleHighlight="вопросы"
-        description="Не нашли ответ? Напишите или позвоните — поможем."
       />
       <div className="mx-auto max-w-3xl space-y-3">
         {items.map((item, index) => {
@@ -52,10 +45,7 @@ export function FaqSection({ limit, showViewAll = false }: FaqSectionProps) {
                   +
                 </span>
               </button>
-              <div
-                className="accordion-content"
-                data-open={isOpen ? "true" : "false"}
-              >
+              <div className="accordion-content" data-open={isOpen ? "true" : "false"}>
                 <div className="overflow-hidden">
                   <div className="border-t border-dark/5 px-6 pb-5">
                     <p className="pt-4 text-sm leading-relaxed text-muted-foreground">
@@ -68,13 +58,6 @@ export function FaqSection({ limit, showViewAll = false }: FaqSectionProps) {
           );
         })}
       </div>
-      {showViewAll ? (
-        <div className="mt-10 text-center">
-          <Button href="/faq" variant="outline">
-            Все вопросы
-          </Button>
-        </div>
-      ) : null}
     </Section>
   );
 }

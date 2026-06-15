@@ -11,14 +11,14 @@ export function ServicesSection() {
         badge="Наши услуги"
         title="Ремонт"
         titleHighlight="любой техники"
-        description="Смартфоны, планшеты, ноутбуки, компьютеры — плюс сборка ПК и установка ПО."
+        description="От диагностики до компонентной пайки — работаем с любыми производителями."
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.slice(0, 6).map((service, index) => (
           <div
             key={service.slug}
             className="animate-fade-in-up"
-            style={{ animationDelay: `${index * 60}ms` }}
+            style={{ animationDelay: `${index * 50}ms` }}
           >
             <ServiceCard service={service} />
           </div>

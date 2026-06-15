@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Service } from "../model/types";
 import { formatPriceFrom } from "@/shared/lib/format";
 import { Button } from "@/shared/ui/Button";
@@ -31,30 +30,5 @@ export function ServiceCard({ service }: ServiceCardProps) {
         </Button>
       </div>
     </article>
-  );
-}
-
-type ServiceCardCompactProps = {
-  service: Service;
-};
-
-export function ServiceCardCompact({ service }: ServiceCardCompactProps) {
-  return (
-    <Link
-      href={`/services/${service.slug}`}
-      className="group flex items-start gap-4 rounded-2xl border border-dark/5 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-lg"
-    >
-      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-xl">
-        {service.icon}
-      </span>
-      <div>
-        <h3 className="font-semibold text-dark group-hover:text-accent">
-          {service.title}
-        </h3>
-        <p className="mt-1 text-sm text-muted-foreground">
-          {service.shortDescription}
-        </p>
-      </div>
-    </Link>
   );
 }
