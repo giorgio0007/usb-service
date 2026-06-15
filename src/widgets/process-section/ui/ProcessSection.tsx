@@ -21,7 +21,7 @@ export function ProcessSection() {
             <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-accent text-2xl font-bold text-white shadow-gradient transition-transform duration-300 hover:scale-105">
               {step.step}
             </div>
-            <h3 className="text-lg font-bold text-dark">{step.title}</h3>
+            <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               {step.description}
             </p>

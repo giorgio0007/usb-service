@@ -8,23 +8,18 @@ import { SectionHeader } from "@/shared/ui/SectionHeader";
 
 export function FaqSection() {
   const [openId, setOpenId] = useState<string | null>(faqItems[0]?.id ?? null);
-  const items = faqItems;
 
   return (
-    <Section className="bg-muted">
-      <SectionHeader
-        badge="FAQ"
-        title="Частые"
-        titleHighlight="вопросы"
-      />
+    <Section className="bg-muted transition-colors duration-200">
+      <SectionHeader badge="FAQ" title="Частые" titleHighlight="вопросы" />
       <div className="mx-auto max-w-3xl space-y-3">
-        {items.map((item, index) => {
+        {faqItems.map((item, index) => {
           const isOpen = openId === item.id;
 
           return (
             <div
               key={item.id}
-              className="animate-fade-in-up overflow-hidden rounded-2xl border border-dark/5 bg-white transition-shadow duration-300 hover:shadow-md"
+              className="animate-fade-in-up overflow-hidden rounded-2xl border border-border bg-card transition-shadow duration-300 hover:shadow-md"
               style={{ animationDelay: `${index * 60}ms` }}
             >
               <button
@@ -33,13 +28,13 @@ export function FaqSection() {
                 className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                 aria-expanded={isOpen}
               >
-                <span className="font-semibold text-dark">{item.question}</span>
+                <span className="font-semibold text-card-foreground">{item.question}</span>
                 <span
                   className={cn(
                     "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm transition-all duration-300 ease-out",
                     isOpen
                       ? "rotate-45 bg-gradient-accent text-white shadow-gradient"
-                      : "bg-muted text-dark",
+                      : "bg-muted text-foreground",
                   )}
                 >
                   +
@@ -47,7 +42,7 @@ export function FaqSection() {
               </button>
               <div className="accordion-content" data-open={isOpen ? "true" : "false"}>
                 <div className="overflow-hidden">
-                  <div className="border-t border-dark/5 px-6 pb-5">
+                  <div className="border-t border-border px-6 pb-5">
                     <p className="pt-4 text-sm leading-relaxed text-muted-foreground">
                       {item.answer}
                     </p>

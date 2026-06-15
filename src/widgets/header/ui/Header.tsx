@@ -10,13 +10,14 @@ import { cn } from "@/shared/lib/cn";
 import { CallButton } from "@/shared/ui/CallButton";
 import { Container } from "@/shared/ui/Container";
 import { Logo } from "@/shared/ui/Logo";
+import { ThemeToggle } from "@/shared/ui/ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-dark/5 bg-white/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-header-border bg-header backdrop-blur-xl transition-colors duration-200">
       <Container>
         <div className="flex h-16 items-center justify-between md:h-[4.5rem]">
           <Logo showIcon showTagline className="scale-90 md:scale-100" />
@@ -28,7 +29,7 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors duration-300 hover:text-accent",
-                  pathname === item.href ? "text-accent" : "text-dark/70",
+                  pathname === item.href ? "text-accent" : "text-muted-foreground",
                 )}
               >
                 {item.label}
@@ -36,24 +37,28 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="hidden items-center gap-3 lg:flex">
+            <ThemeToggle />
             <a
               href={formatPhoneHref(siteConfig.phonePrimary)}
-              className="text-sm font-semibold text-dark transition-colors duration-300 hover:text-accent"
+              className="text-sm font-semibold text-foreground transition-colors duration-300 hover:text-accent"
             >
               {siteConfig.phonePrimary}
             </a>
             <CallButton size="sm" />
           </div>
 
-          <button
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-dark/10 transition-colors duration-300 hover:border-accent/30 lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-foreground transition-colors duration-300 hover:border-accent/30 lg:hidden"
             onClick={() => setMobileOpen((open) => !open)}
             aria-label="Открыть меню"
           >
             <span className="text-xl">{mobileOpen ? "✕" : "☰"}</span>
-          </button>
+            </button>
+          </div>
         </div>
 
         <div
@@ -62,7 +67,7 @@ export function Header() {
             mobileOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
           )}
         >
-          <nav className="overflow-hidden border-t border-dark/5 py-4">
+          <nav className="overflow-hidden border-t border-border py-4">
             <div className="flex flex-col gap-2">
               {mainNavigation.map((item) => (
                 <Link
@@ -73,7 +78,7 @@ export function Header() {
                     "rounded-xl px-4 py-3 text-sm font-medium transition-colors duration-300",
                     pathname === item.href
                       ? "bg-accent/10 text-accent"
-                      : "text-dark/70 hover:bg-muted",
+                      : "text-muted-foreground hover:bg-muted",
                   )}
                 >
                   {item.label}

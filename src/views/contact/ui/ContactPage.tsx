@@ -1,9 +1,10 @@
-import { siteConfig } from '@/shared/config/site';
-import { formatPhoneHref } from '@/shared/lib/format';
-import { CallButton } from '@/shared/ui/CallButton';
-import { MessengerMenu } from '@/shared/ui/MessengerMenu';
-import { Section } from '@/shared/ui/Section';
-import { SectionHeader } from '@/shared/ui/SectionHeader';
+import { siteConfig } from "@/shared/config/site";
+import { formatPhoneHref } from "@/shared/lib/format";
+import { LocationMap } from "@/widgets/location-map/ui/LocationMap";
+import { CallButton } from "@/shared/ui/CallButton";
+import { MessengerMenu } from "@/shared/ui/MessengerMenu";
+import { Section } from "@/shared/ui/Section";
+import { SectionHeader } from "@/shared/ui/SectionHeader";
 
 export function ContactPage() {
   return (
@@ -21,21 +22,17 @@ export function ContactPage() {
       </div>
 
       <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
-        <div className="rounded-3xl border border-dark/5 bg-muted p-6 transition-shadow duration-300 hover:shadow-md">
-          <h3 className="font-bold text-dark">Адрес</h3>
+        <div className="rounded-3xl border border-border bg-card p-6 transition-shadow duration-300 hover:shadow-md">
+          <h3 className="font-bold text-card-foreground">Адрес</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             {siteConfig.address}
           </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {siteConfig.hours}
-          </p>
-          <p className="text-sm text-muted-foreground">
-            {siteConfig.hoursWeekend}
-          </p>
+          <p className="mt-2 text-sm text-muted-foreground">{siteConfig.hours}</p>
+          <p className="text-sm text-muted-foreground">{siteConfig.hoursWeekend}</p>
         </div>
 
-        <div className="rounded-3xl border border-dark/5 bg-muted p-6 transition-shadow duration-300 hover:shadow-md">
-          <h3 className="font-bold text-dark">Телефоны</h3>
+        <div className="rounded-3xl border border-border bg-card p-6 transition-shadow duration-300 hover:shadow-md">
+          <h3 className="font-bold text-card-foreground">Телефоны</h3>
           <a
             href={formatPhoneHref(siteConfig.phonePrimary)}
             className="mt-3 block text-lg font-semibold text-gradient"
@@ -44,8 +41,8 @@ export function ContactPage() {
           </a>
         </div>
 
-        <div className="rounded-3xl border border-dark/5 bg-muted p-6 transition-shadow duration-300 hover:shadow-md sm:col-span-2">
-          <h3 className="font-bold text-dark">Email и соцсети</h3>
+        <div className="rounded-3xl border border-border bg-card p-6 transition-shadow duration-300 hover:shadow-md sm:col-span-2">
+          <h3 className="font-bold text-card-foreground">Email и соцсети</h3>
           <a
             href={`mailto:${siteConfig.email}`}
             className="mt-3 block text-sm text-accent transition-colors duration-300 hover:text-accent-hover"
@@ -72,6 +69,8 @@ export function ContactPage() {
           </div>
         </div>
       </div>
+
+      <LocationMap className="mx-auto mt-12 max-w-3xl" />
     </Section>
   );
 }

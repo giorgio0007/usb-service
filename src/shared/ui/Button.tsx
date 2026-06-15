@@ -7,10 +7,10 @@ type ButtonSize = "sm" | "md" | "lg";
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
     "bg-gradient-accent text-white shadow-gradient hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]",
-  secondary: "bg-dark text-white hover:bg-dark/90",
+  secondary: "bg-surface text-surface-foreground hover:bg-surface/90",
   outline:
-    "border-2 border-dark/10 bg-transparent text-dark hover:border-accent hover:text-accent",
-  ghost: "bg-transparent text-dark hover:bg-muted",
+    "border-2 border-border bg-transparent text-foreground hover:border-accent hover:text-accent",
+  ghost: "bg-transparent text-foreground hover:bg-muted",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

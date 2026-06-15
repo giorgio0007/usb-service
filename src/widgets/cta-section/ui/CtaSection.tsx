@@ -1,6 +1,6 @@
 import { siteConfig } from "@/shared/config/site";
+import { LocationMap } from "@/widgets/location-map/ui/LocationMap";
 import { Container } from "@/shared/ui/Container";
-import { OpenNavigatorButton } from "@/shared/ui/OpenNavigatorButton";
 
 export function CtaSection() {
   return (
@@ -15,19 +15,7 @@ export function CtaSection() {
             {siteConfig.address} · {siteConfig.hours}
           </p>
 
-          <div className="animate-fade-in-up animation-delay-200 mt-8 overflow-hidden rounded-3xl border border-white/20 shadow-2xl">
-            <iframe
-              src={siteConfig.map.embedUrl}
-              title="ЮСБ СЕРВИС на карте"
-              className="aspect-[16/10] w-full border-0 md:aspect-[16/9]"
-              allowFullScreen
-              loading="lazy"
-            />
-          </div>
-
-          <div className="animate-fade-in-up animation-delay-300 mt-8">
-            <OpenNavigatorButton className="w-full sm:w-auto" />
-          </div>
+          <LocationMap onSurface className="animation-delay-200 mt-8" />
         </div>
       </Container>
     </section>

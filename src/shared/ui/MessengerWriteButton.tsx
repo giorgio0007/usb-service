@@ -31,8 +31,8 @@ export function MessengerWriteButton({
           "relative inline-flex w-full items-center justify-center rounded-full border-2 font-semibold transition-all duration-300 ease-out sm:w-auto",
           sizeStyles[size],
           open
-            ? "border-white/30 bg-white/10 text-white"
-            : "border-white/20 bg-transparent text-white hover:border-accent-light hover:bg-white/5",
+            ? "border-surface-border bg-surface-muted text-surface-foreground"
+            : "border-surface-border bg-transparent text-surface-foreground hover:bg-surface-muted",
         )}
       >
         <span className={cn("transition-all duration-300", open && "scale-0 opacity-0")}>

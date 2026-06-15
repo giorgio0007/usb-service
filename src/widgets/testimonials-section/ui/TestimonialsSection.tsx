@@ -5,16 +5,12 @@ import { SectionHeader } from "@/shared/ui/SectionHeader";
 export function TestimonialsSection() {
   return (
     <Section>
-      <SectionHeader
-        badge="Отзывы"
-        title="Что говорят"
-        titleHighlight="клиенты"
-      />
+      <SectionHeader badge="Отзывы" title="Что говорят" titleHighlight="клиенты" />
       <div className="grid gap-6 md:grid-cols-2">
         {testimonials.map((testimonial, index) => (
           <blockquote
             key={testimonial.id}
-            className="animate-fade-in-up rounded-3xl border border-dark/5 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+            className="animate-fade-in-up rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
             style={{ animationDelay: `${index * 80}ms` }}
           >
             <div className="mb-4 flex gap-1">
@@ -32,12 +28,10 @@ export function TestimonialsSection() {
                 {testimonial.avatar}
               </span>
               <div>
-                <p className="text-sm font-semibold text-dark">
+                <p className="text-sm font-semibold text-card-foreground">
                   {testimonial.name}
                 </p>
-                <p className="text-xs text-muted-foreground">
-                  {testimonial.role}
-                </p>
+                <p className="text-xs text-muted-foreground">{testimonial.role}</p>
               </div>
             </footer>
           </blockquote>

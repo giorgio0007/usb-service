@@ -3,12 +3,10 @@ import { cn } from "@/shared/lib/cn";
 
 type RatingBadgesProps = {
   className?: string;
-  variant?: "light" | "dark";
+  onSurface?: boolean;
 };
 
-export function RatingBadges({ className, variant = "dark" }: RatingBadgesProps) {
-  const isLight = variant === "light";
-
+export function RatingBadges({ className, onSurface = false }: RatingBadgesProps) {
   return (
     <div className={cn("flex flex-wrap gap-4 sm:gap-6", className)}>
       {siteConfig.ratings.map((rating) => (
@@ -27,7 +25,7 @@ export function RatingBadges({ className, variant = "dark" }: RatingBadgesProps)
             <p
               className={cn(
                 "text-lg font-bold leading-none md:text-xl",
-                isLight ? "text-dark" : "text-white",
+                onSurface ? "text-surface-foreground" : "text-foreground",
               )}
             >
               {rating.value}
@@ -35,7 +33,7 @@ export function RatingBadges({ className, variant = "dark" }: RatingBadgesProps)
             <p
               className={cn(
                 "mt-0.5 text-xs",
-                isLight ? "text-muted-foreground" : "text-white/50",
+                onSurface ? "text-surface-foreground/50" : "text-muted-foreground",
               )}
             >
               {rating.label}

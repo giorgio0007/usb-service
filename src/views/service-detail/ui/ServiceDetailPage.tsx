@@ -24,7 +24,7 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             {service.icon}
           </span>
           <div>
-            <h1 className="text-3xl font-bold text-dark md:text-4xl">
+            <h1 className="text-3xl font-bold text-foreground md:text-4xl">
               {service.title}
             </h1>
             <p className="mt-1 text-muted-foreground">
@@ -35,8 +35,8 @@ export function ServiceDetailPage({ service }: ServiceDetailPageProps) {
         <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
           {service.description}
         </p>
-        <div className="mt-10 rounded-3xl border border-dark/5 bg-muted p-8">
-          <h2 className="text-xl font-bold text-dark">Что входит в услугу</h2>
+        <div className="mt-10 rounded-3xl border border-border bg-muted p-8">
+          <h2 className="text-xl font-bold text-foreground">Что входит в услугу</h2>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {service.features.map((feature) => (
               <li

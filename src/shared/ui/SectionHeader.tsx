@@ -36,7 +36,7 @@ export function SectionHeader({
       )}
     >
       {badge ? <Badge className="mb-4">{badge}</Badge> : null}
-      <h2 className="text-3xl font-bold tracking-tight text-dark md:text-4xl lg:text-5xl">
+      <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
         {titleContent}
       </h2>
       {description ? (

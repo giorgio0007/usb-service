@@ -1,14 +1,77 @@
 @import "tailwindcss";
 
-:root {
+@custom-variant dark (
+  &:where([data-theme="dark"], [data-theme="dark"] *),
+  &:where(:root:not([data-theme="light"]):not([data-theme="dark"]) *) @media (prefers-color-scheme: dark)
+);
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
   --background: #ffffff;
   --foreground: #1d1d1f;
   --muted: #f5f5f7;
   --muted-foreground: #6e6e73;
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  --border: rgb(29 29 31 / 0.08);
+  --surface: #1d1d1f;
+  --surface-foreground: #ffffff;
+  --surface-muted: rgb(255 255 255 / 0.08);
+  --surface-border: rgb(255 255 255 / 0.12);
+  --header: rgb(255 255 255 / 0.82);
+  --header-border: rgb(29 29 31 / 0.08);
   --dark: #1d1d1f;
   --accent: #9333ea;
   --accent-hover: #7e22ce;
   --accent-light: #a855f7;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #0f0f10;
+  --foreground: #f5f5f7;
+  --muted: #18181a;
+  --muted-foreground: #98989d;
+  --card: #1c1c1e;
+  --card-foreground: #f5f5f7;
+  --border: rgb(255 255 255 / 0.1);
+  --surface: #050506;
+  --surface-foreground: #f5f5f7;
+  --surface-muted: rgb(255 255 255 / 0.06);
+  --surface-border: rgb(255 255 255 / 0.12);
+  --header: rgb(15 15 16 / 0.88);
+  --header-border: rgb(255 255 255 / 0.08);
+  --dark: #050506;
+  --accent: #a855f7;
+  --accent-hover: #9333ea;
+  --accent-light: #c084fc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    color-scheme: dark;
+
+    --background: #0f0f10;
+    --foreground: #f5f5f7;
+    --muted: #18181a;
+    --muted-foreground: #98989d;
+    --card: #1c1c1e;
+    --card-foreground: #f5f5f7;
+    --border: rgb(255 255 255 / 0.1);
+    --surface: #050506;
+    --surface-foreground: #f5f5f7;
+    --surface-muted: rgb(255 255 255 / 0.06);
+    --surface-border: rgb(255 255 255 / 0.12);
+    --header: rgb(15 15 16 / 0.88);
+    --header-border: rgb(255 255 255 / 0.08);
+    --dark: #050506;
+    --accent: #a855f7;
+    --accent-hover: #9333ea;
+    --accent-light: #c084fc;
+  }
 }
 
 @theme inline {
@@ -16,6 +79,15 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-border: var(--surface-border);
+  --color-header: var(--header);
+  --color-header-border: var(--header-border);
   --color-dark: var(--dark);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
@@ -45,6 +117,9 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .logo-brand {

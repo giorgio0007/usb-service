@@ -71,7 +71,7 @@ export function MessengerMenu({
           isFab
             ? "h-14 w-14 bg-gradient-accent text-white shadow-gradient hover:scale-105 active:scale-95"
             : cn(
-                "border-2 border-dark/10 bg-transparent text-dark hover:border-accent hover:text-accent",
+                "border-2 border-border bg-transparent text-foreground hover:border-accent hover:text-accent",
                 sizeStyles[size],
               ),
           !isFab && open && "border-accent/30 bg-accent/5 text-accent",
