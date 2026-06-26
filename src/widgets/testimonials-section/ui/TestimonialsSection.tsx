@@ -30,17 +30,13 @@ export function TestimonialsSection() {
                 </span>
               </div>
 
-              {'rating' in review ? (
+              {'rating' in review && (
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <span className="text-yellow-500 tracking-tight">★★★★★</span>
 
                   <span>{review.rating}</span>
                   <span>{review.count}</span>
                 </div>
-              ) : (
-                <p className="text-sm text-muted-foreground">
-                  {review.subtitle}
-                </p>
               )}
             </div>
 
