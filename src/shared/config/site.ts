@@ -21,9 +21,27 @@ export const siteConfig = {
     max: 'https://max.ru/u/usb_stav',
   },
   ratings: [
-    { id: 'google', label: 'Google', shortLabel: 'G', value: '4,4' },
-    { id: '2gis', label: '2ГИС', shortLabel: '2G', value: '4,9' },
-    { id: 'yandex', label: 'Яндекс', shortLabel: 'Я', value: '4,8' },
+    {
+      id: 'google',
+      label: 'Google',
+      shortLabel: 'G',
+      value: '4,4',
+      url: 'https://share.google/DBe6ZvIEDiqWN5pf4',
+    },
+    {
+      id: '2gis',
+      label: '2ГИС',
+      shortLabel: '2G',
+      value: '4,9',
+      url: 'https://go.2gis.com/JyqYA',
+    },
+    {
+      id: 'yandex',
+      label: 'Яндекс',
+      shortLabel: 'Я',
+      value: '4,8',
+      url: 'https://yandex.ru/maps/org/yusb_servis/1802920339/reviews/?ll=41.944210%2C45.020668&z=14',
+    },
   ],
   map: {
     url: 'https://yandex.by/maps/org/yusb_servis/1802920339/?ll=41.943693%2C45.020657&z=19.47',
