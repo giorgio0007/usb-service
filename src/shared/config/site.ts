@@ -43,6 +43,32 @@ export const siteConfig = {
       url: 'https://yandex.ru/maps/org/yusb_servis/1802920339/reviews/?ll=41.944210%2C45.020668&z=14',
     },
   ],
+  reviews: [
+    {
+      id: 'yandex',
+      title: 'Яндекс',
+      rating: '4.8',
+      count: '57+ оценок',
+      href: 'https://yandex.ru/maps/org/yusb_servis/1802920339/reviews/?ll=41.944210%2C45.020668&z=14',
+      icon: '/icons/yandex.svg',
+    },
+    {
+      id: '2gis',
+      title: '2ГИС',
+      rating: '4.9',
+      count: '27+ оценок',
+      href: 'https://go.2gis.com/JyqYA',
+      icon: '/icons/2gis.svg',
+    },
+    {
+      id: 'google',
+      title: 'Google Карты',
+      rating: '4.4',
+      count: '25+ оценок',
+      href: 'https://share.google/DBe6ZvIEDiqWN5pf4',
+      icon: '/icons/google-maps.svg',
+    },
+  ],
   map: {
     url: 'https://yandex.by/maps/org/yusb_servis/1802920339/?ll=41.943693%2C45.020657&z=19.47',
     embedUrl:

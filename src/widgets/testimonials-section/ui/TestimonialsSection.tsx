@@ -1,40 +1,57 @@
-import { testimonials } from "@/entities/testimonial/model/data";
-import { Section } from "@/shared/ui/Section";
-import { SectionHeader } from "@/shared/ui/SectionHeader";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { siteConfig } from '@/shared/config/site';
+import { Section } from '@/shared/ui/Section';
+import { SectionHeader } from '@/shared/ui/SectionHeader';
 
 export function TestimonialsSection() {
   return (
     <Section>
-      <SectionHeader badge="Отзывы" title="Что говорят" titleHighlight="клиенты" />
-      <div className="grid gap-6 md:grid-cols-2">
-        {testimonials.map((testimonial, index) => (
-          <blockquote
-            key={testimonial.id}
-            className="animate-fade-in-up rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-            style={{ animationDelay: `${index * 80}ms` }}
+      <SectionHeader
+        badge="Отзывы"
+        title="Что говорят"
+        titleHighlight="клиенты"
+      />
+      <div className="grid gap-4 md:grid-cols-3">
+        {siteConfig.reviews.map((review) => (
+          <Link
+            key={review.id}
+            href={review.href}
+            target="_blank"
+            className="group flex items-start justify-between rounded-3xl bg-card p-8 transition-all hover:-translate-y-1 hover:shadow-lg"
           >
-            <div className="mb-4 flex gap-1">
-              {Array.from({ length: testimonial.rating }).map((_, i) => (
-                <span key={i} className="text-accent">
-                  ★
+            <div>
+              <div className="mb-3 flex items-center gap-1">
+                <h3 className="text-2xl font-semibold">{review.title}</h3>
+
+                <span className="text-xl text-muted-foreground transition-transform group-hover:translate-x-1">
+                  ›
                 </span>
-              ))}
-            </div>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              «{testimonial.content}»
-            </p>
-            <footer className="mt-6 flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
-                {testimonial.avatar}
-              </span>
-              <div>
-                <p className="text-sm font-semibold text-card-foreground">
-                  {testimonial.name}
-                </p>
-                <p className="text-xs text-muted-foreground">{testimonial.role}</p>
               </div>
-            </footer>
-          </blockquote>
+
+              {'rating' in review ? (
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <span className="text-yellow-500 tracking-tight">★★★★★</span>
+
+                  <span>{review.rating}</span>
+                  <span>{review.count}</span>
+                </div>
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  {review.subtitle}
+                </p>
+              )}
+            </div>
+
+            <Image
+              src={review.icon}
+              alt={review.title}
+              width={120}
+              height={36}
+              className="h-9 w-auto object-contain"
+            />
+          </Link>
         ))}
       </div>
     </Section>
